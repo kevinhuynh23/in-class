@@ -1,1 +1,6 @@
 /* we'll add some basic style here */
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 2rem;
+    color: rgba(0,0,255,1)
+}
