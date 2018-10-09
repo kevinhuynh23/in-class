@@ -1,31 +1,58 @@
-.intro {
+*, *before, *after {
+    box-sizing: border-box;
+}
 
+.intro {
+    background:green;
 }
 
 header {
-
+    width:250px;
+    background: yellow;
+    padding:1em;
+    margin:1em;
+    border: 5px solid blue;
+    display: inline-block;
 }
 
 .summary {
-
+    width: 250px;
+    display:inline-block;
 }
 
 .preamble {
-
+    min-width: 300px;
+    max-width: 400px;
 }
 
 .sidebar {
+    position: fixed;
+    right:10px;
+    top:10px;
+    max-width: 250px;
+    background: chartreuse;
+    padding:1em;
+}
 
+.page-wrapper {
+    margin-right: 300px;
 }
 
 #zen-supporting {
-
+    display:flex;
+    flex-direction: row-reverse;
+    flex-wrap:wrap;
 }
 
-.explanation, .particpation, .benefits, .requirements {
-
+.explanation, .participation, .benefits, .requirements {
+    flex-grow:2;
+    flex-basis: 300px;
+}
+.benefits {
+    flex:2;
+    order:99;
 }
 
 footer {
-
+    flex-basis:10px;
 }
