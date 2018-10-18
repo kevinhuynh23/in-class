@@ -1,7 +1,26 @@
-.column {
-
+.flexboxes {
+    min-height: 25em;
+    background: lightgrey;
 }
 
-.row {
-    
+.row, .flexboxes:nth-child(odd) {
+    background: lightblue;
+}
+
+@media (min-width: 600px) {
+    .row {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .flexboxes {
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .flexboxes {
+        flex-basis: auto;
+    }
 }
