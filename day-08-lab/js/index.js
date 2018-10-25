@@ -21,8 +21,11 @@ input.onkeydown = drawLines;
 function getLinesFromText() {
     // Get the value of the text input
     let text = document.getElementById('textInput').value;
-
+    let textList = text.split(' ');
     // Return an *array* containing the length of each word
+    return textList.map(function(word) {
+        return word.length;
+    })
 }
 
 
@@ -33,13 +36,16 @@ function drawLines() {
     ctx.beginPath();
 
     // Set initial position (x, y) in the center of the canvas
-    let position = {};
+    let position = {
+        x: width / 2,
+        y: height / 2
+    };
 
     // Move the pen to the starting position
-
+    ctx.moveTo(position);
 
     // Get the array of lengths from text input using `getLinesFromText()`
-
+    let lines = getLinesFromText();
 
     // Iterate through lengths, updating and tracking the pen position
     // Turn 90 degrees each turn
