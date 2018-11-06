@@ -32,3 +32,18 @@ $(function () {
     // element with id "change" to the state.text, and resets the input
 
 });
+
+
+function map (arr, doFunction) {
+    let mapped = [];
+    for(let i = 0; i < arr.length; i++) {
+        mapped[i] = doFunction(arr[i]);
+    }
+    return mapped;
+}
+
+myMap = function(callback) {
+    for(let i = 0; i < elements.length; i++) {
+        callback(elements[i], i);
+    }
+}
