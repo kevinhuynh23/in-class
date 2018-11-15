@@ -7,15 +7,20 @@ class SearchApp extends Component {
     // Also *bind `this`* to the handleChange function
     constructor(props) {
         super(props);
-
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            search: ''
+        };
     }
 
     // In this event, get the target value, and reset the state of `search`
     handleChange(event) {
         // Get event value
-
+        let searchValue = event.target.value;
         // Set the state to trigger a re-rendering
-
+        this.setState({
+            search: searchValue
+        });
     }
 
     // Function to render data
@@ -33,6 +38,8 @@ class SearchApp extends Component {
         // Return a `div` containing a  `UserInput` component and a `Table` component
         return (
             <div>
+                <UserInput update={this.handleChange} />
+                <Table data={employees}/>
             </div>
         )
     }
@@ -48,6 +55,7 @@ class UserInput extends Component {
     render() {
         return (
             <div>
+                <input className="form-contorl mb-2" placeholder="Search employees..." onChange={(e) => this.props.update(e)}/>
             </div>)
     }
 }
@@ -88,6 +96,9 @@ class Table extends Component {
                     <th>Salary</th>
                   </tr>
                   {// write your code here!
+                    this.prop.data.map(function(d, i) {
+                        return <TableRow key={'person-' + i} name={d.name} salary={d.salary} title={d.title} />
+                    })
                   }
                 </tbody>
               </table>
