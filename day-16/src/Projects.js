@@ -18,8 +18,25 @@ export class Projects extends Component {
     }
     render() {
         console.log(this.state.data)
-        return <div className="container">Projects
-                 { /* Render a card for each element in your data */ }
-               </div>
+        return (
+            <div className="container">
+                <h1>Projects</h1>
+                 { this.state.data.map((d, i) => {
+                     return (
+                        <Col sm="6" key={"project" + i}>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle> { d.name } </CardTitle>
+                                    <CardText> {d.description} </CardText>
+                                    <a target="_blank" href={d.link}>
+                                        <Button>{d.name}</Button>
+                                    </a>
+                                </CardBody>
+                            </Card>
+                            <br/>
+                        </Col>
+                    )})}
+            </div>
+        )
     }
 }
